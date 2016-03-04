@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Pokedex</string>
+    <string name="excuse">Should display the next view (with some more time)</string>
+</resources>
