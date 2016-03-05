@@ -1,14 +1,13 @@
 package com.pocket.monsters.presenter.interfaces.communications;
 
 import com.pocket.monsters.model.BigAnswer;
-import com.pocket.monsters.model.Pokemon;
+import com.pocket.monsters.model.Sprite;
 
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 import rx.Observable;
 
-import static com.pocket.monsters.presenter.utils.Constants.POKEMON_DETAIL;
 import static com.pocket.monsters.presenter.utils.Constants.POKEMON_LIST;
 
 /**
@@ -19,6 +18,6 @@ public interface PokeServerMethods {
     @GET(POKEMON_LIST)
     Observable<BigAnswer> GetPokemons(@Query("limit") Integer limit, @Query("offset") Integer offset);
 
-    @GET(POKEMON_DETAIL)
-    Observable<Pokemon> GetPokemonDetail(@Path("pokeId") Integer pokeId);
+    @GET()
+    Observable<Sprite> GetPokemonSprite(@Url String route);
 }

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Pokedex</string>
     <string name="excuse">Should display the next view (with some more time)</string>
+    <string name="placeholder_name">Name: Pikachu</string>
+    <string name="placeholder_number">50</string>
+    <string name="placeholder_pikachu">Picachu</string>
+    <string name="national_index_id">National pokedex id: %s</string>
+    <string name="pokemon_name">Name: %s</string>
+    <string name="male_ratio">Male - Female Ratio: %s</string>
+    <string name="pokemon_details_append">\' Details</string>
 </resources>

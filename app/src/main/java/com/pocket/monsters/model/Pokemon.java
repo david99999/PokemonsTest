@@ -84,7 +84,7 @@ public class Pokemon implements Serializable {
     @SerializedName("weight")
     public String weight;
 
-    public class Sprite {
+    public class Sprite implements Serializable{
         @SerializedName("name")
         public String name;
 

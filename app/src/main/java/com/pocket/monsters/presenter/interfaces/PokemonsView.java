@@ -1,7 +1,5 @@
 package com.pocket.monsters.presenter.interfaces;
 
-import android.view.View;
-
 import com.pocket.monsters.model.Pokemon;
 
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ public interface PokemonsView {
 
     void hideLoading();
 
-    void showMessage(View view);
+    void pokemonClicked(Pokemon item);
 
     void setItems(ArrayList<Pokemon> items);
 

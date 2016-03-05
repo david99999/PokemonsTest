@@ -11,6 +11,8 @@ import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
+import static com.pocket.monsters.presenter.utils.Constants.POKEMONS_PER_REQUEST;
+
 /**
  * Created by david on 4/03/16.
  */
@@ -19,24 +21,26 @@ public class LoadFromServerInteractorImpl implements LoadFromServerInteractor {
     LoadProcessListener listener;
 
     @Override
-    public void loadData(int offset, final LoadProcessListener listener) {
+    public void loadData(int offset, LoadProcessListener listener) {
         this.listener = listener;
         subscription = PokeServer
                 .getInstance()
                 .getInteractor()
-                .GetPokemons(20, offset)
+                .GetPokemons(POKEMONS_PER_REQUEST, offset)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(new Action1<BigAnswer>() {
                     @Override
                     public void call(BigAnswer answer) {
-                        listener.OnDataLoaded(answer.pokemons);
+                        if (LoadFromServerInteractorImpl.this.listener != null)
+                            LoadFromServerInteractorImpl.this.listener.OnDataLoaded(answer.pokemons);
                     }
                 })
                 .onErrorReturn(new Func1<Throwable, BigAnswer>() {
                     @Override
                     public BigAnswer call(Throwable throwable) {
-                        listener.OnError(throwable);
+                        if (LoadFromServerInteractorImpl.this.listener != null)
+                            LoadFromServerInteractorImpl.this.listener.OnError(throwable);
                         return new BigAnswer();
                     }
                 })

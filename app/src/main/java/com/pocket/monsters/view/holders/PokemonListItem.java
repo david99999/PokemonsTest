@@ -3,7 +3,6 @@ package com.pocket.monsters.view.holders;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
 import com.pocket.monsters.R;
@@ -37,15 +36,5 @@ public class PokemonListItem extends CardView {
 
    public void setPokemon(Pokemon pokemon) {
         tvName.setText(pokemon.name);
-    }
-
-    public void setClickListeners(PokemonsPresenter listener) {
-        this.listener = listener;
-        setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PokemonListItem.this.listener.viewClicked(v);
-            }
-        });
     }
 }

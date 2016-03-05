@@ -1,6 +1,6 @@
 package com.pocket.monsters.presenter.interfaces;
 
-import android.view.View;
+import com.pocket.monsters.model.Pokemon;
 
 /**
  * Created by david on 4/03/16.
@@ -9,5 +9,5 @@ public interface PokemonsPresenter {
 
     void loadItems(int offset);
 
-    void viewClicked(View view);
+    void pokemonClicked(Pokemon pokemon);
 }

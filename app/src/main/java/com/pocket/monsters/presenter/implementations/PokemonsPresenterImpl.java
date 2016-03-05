@@ -1,7 +1,5 @@
 package com.pocket.monsters.presenter.implementations;
 
-import android.view.View;
-
 import com.pocket.monsters.model.Pokemon;
 import com.pocket.monsters.presenter.interfaces.LoadProcessListener;
 import com.pocket.monsters.presenter.interfaces.PokemonsPresenter;
@@ -29,9 +27,10 @@ public class PokemonsPresenterImpl implements PokemonsPresenter, LoadProcessList
     }
 
     @Override
-    public void viewClicked(View view) {
-        this.view.showMessage(view);
+    public void pokemonClicked(Pokemon pokemon) {
+        view.pokemonClicked(pokemon);
     }
+
 
     @Override
     public void OnDataLoaded(Object data) {
